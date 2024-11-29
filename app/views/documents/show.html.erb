@@ -1,10 +1,9 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @document %>
+<h1><%= @document.title %></h1>
 
 <div>
-  <%= link_to "Edit this document", edit_document_path(@document) %> |
-  <%= link_to "Back to documents", documents_path %>
-
-  <%= button_to "Destroy this document", @document, method: :delete %>
+  <h3>Rendered Content:</h3>
+  <%= raw Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(@document.content) %>
 </div>
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>

@@ -1,6 +1,11 @@
 <%= form_with(model: document) do |form| %>
   <div data-controller="markdown">
     <div>
+      <%= form.label :title, "Title" %><br>
+      <%= form.text_field :title %>
+    </div>
+
+    <div>
       <%= form.label :content, "Markdown Content" %><br>
       <%= form.text_area :content, rows: 10, data: { markdown_target: "input" } %>
     </div>
